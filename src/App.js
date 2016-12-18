@@ -4,33 +4,33 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      txt: "",
+      txt: "starting txt",
       fun:""
     }
   }
 
   updateTitle(e){
     this.setState({txt: e.target.value})
+    console.log(e.target.value);
   }
+
   render(){
+    console.log(this.state);
     return(
       <div>
         <h1>{this.state.txt}</h1>
-        <Widget update={this.updateTitle.bind(this)}/>
+        <Widget updateFunction={this.updateTitle.bind(this)} />
       </div>
     )
   }
 }
 
-// class Widget extends React.Component {
-//   render(){
-//     this.props = App.props;
-//     return(
-//       <input type="text" onChange={props.update} />
-//     )
-//   }
-// }
-
-const Widget = (props) => <input type="text" onChange={props.update} />
+class Widget extends React.Component {
+  render(){
+    return(
+      <input type="text" onChange={this.props.updateFunction} />
+    )
+  }
+}
 
 export default App
