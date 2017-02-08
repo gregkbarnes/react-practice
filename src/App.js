@@ -1,6 +1,7 @@
 import React from 'react';
 import LibraryGrid from './components/librarygrid/LibraryGrid';
 
+
 class App extends React.Component {
   constructor(){
     super();
@@ -10,10 +11,13 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+  }
+
   render(){
     return(
       <div>
-        <LibraryGrid initialGridWidth={1000} initialGridHeight={500} />
+        <LibraryGrid/>
       </div>
     )
   }

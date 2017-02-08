@@ -1,0 +1,30 @@
+Body {
+  Header {
+    Logo
+    Profile
+  }
+
+  Workspace {
+    Layout Editor {
+      Layout Tools {
+        Save
+        Undo
+        Redo
+        Duplicate
+      }
+    }
+    Toolbar {
+      Recently Used
+      Components
+    }
+	}
+
+    Breakdown and Calculations {
+      //
+    }
+  }
+
+  Footer {
+    //
+  }
+}

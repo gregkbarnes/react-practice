@@ -1,30 +1,31 @@
 import React from 'react';
-import Draggable from 'react-draggable';
 
 class Cell extends React.Component {
+  clickHandler(event){
+    console.log('CLICK');
+  }
+
+  enterCell(event){
+    var myCell = document.querySelector(".cell");
+    myCell.classList.add("highlighted");
+    event.stopPropagation();
+  }
+
+  leaveCell(event){
+    var myCell = document.querySelector(".cell");
+    myCell.classList.remove("highlighted");
+    event.stopPropagation();
+  }
+
   render(){
     return(
-      <Draggable
-        axis="both"
-        bounds={
-          {
-            left: 0,
-            right: 550,
-            top:0,
-            bottom: 350
-          }
-        }
-        handle=".handle"
-        position={null}
-        grid={[10, 10]}
-        zIndex={100}
-        onStart={this.handleStart}
-        onDrag={this.handleDrag}
-        onStop={this.handleStop}>
-        <div className="handle">
-          <div  id="test" onClick={this.props.updateFunction} className={'cell'}>{'Cell'}</div>
-        </div>
-      </Draggable>
+      <div
+        className="cell"
+        onClick={this.clickHandler}
+        onMouseEnter={this.enterCell}
+        onMouseLeave={this.leaveCell}
+      >
+      </div>
     )
   }
 }
