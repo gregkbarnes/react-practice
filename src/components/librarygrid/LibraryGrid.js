@@ -1,5 +1,5 @@
 import React from 'react';
-import Cell from './Cell';
+import Sortmate from './Sortmate';
 
 class LibraryGrid extends React.Component{
   constructor(props) {
@@ -26,8 +26,7 @@ class LibraryGrid extends React.Component{
   render(){
     return(
       <div id='library-grid' className="poop" onMouseMove={this.updateGridCursor.bind(this)}>
-        <Cell/>
-        <p>{"Cursor Position: ("+this.state.cursorX+","+this.state.cursorY+")"}</p>
+        <div id='cursor-position'>{"Cursor Position: ("+this.state.cursorX+","+this.state.cursorY+")"}</div>
       </div>
     )
   }
