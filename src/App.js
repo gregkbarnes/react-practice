@@ -1,23 +1,16 @@
 import React from 'react';
-import LibraryGrid from './components/librarygrid/LibraryGrid';
+import LibraryGrid from './components/LibraryGrid';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 
 class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      gridCursorX: "1",
-      gridCursorY: "1"
-    }
-  }
-
-  componentDidMount(){
-  }
-
   render(){
     return(
       <div>
-        <LibraryGrid/>
+        <NavBar />
+        <LibraryGrid />
+        <Footer />
       </div>
     )
   }

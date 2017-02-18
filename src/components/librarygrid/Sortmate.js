@@ -3,36 +3,34 @@ import React from 'react';
 class Sortmate extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      nodeNumber: "01"
+      nodeNumber: this.props.nodeNumber,
+      xPosition: this.props.x,
+      yPosition: this.props.y
     }
+
+    console.log('constructor done...');
   }
 
-  clickHandler(event){
-    console.log('CLICK');
-  }
-
-  enterCell(event){
-    var myCell = document.querySelector(".sortmate");
-    myCell.classList.add("highlighted");
-    event.stopPropagation();
-  }
-
-  leaveCell(event){
-    var myCell = document.querySelector(".sortmate");
-    myCell.classList.remove("highlighted");
-    event.stopPropagation();
+  componentDidMount() {
+    console.log("Create: SM" + this.state.nodeNumber + " [" + this.state.xPosition + "," + this.state.yPosition + "]");
+    if (this.props.nodeNumber === '01') {
+      console.log('Master sortmate found');
+      this.setState({
+        xPosition: 150,
+        yPosition: 150
+      });
+      console.log('test' + this.state.xPosition);
+    }
+    console.log("Create: SM" + this.state.nodeNumber + " [" + this.state.xPosition + "," + this.state.yPosition + "]");
   }
 
   render(){
     return(
-      <div
-        className="sortmate"
-        onClick={this.clickHandler}
-        onMouseEnter={this.enterCell}
-        onMouseLeave={this.leaveCell}
-      >
-        <div className="node-label">{"SM"+this.state.nodeNumber}</div>
+      <div className="sortmate">
+        {/*<div className="node-label">{"SM"+this.props.nodeNumber}</div>*/}
+        {"SM"+this.props.nodeNumber+"["+this.state.xPosition+"]"}
       </div>
     )
   }
